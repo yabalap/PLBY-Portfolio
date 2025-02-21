@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLBY</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaquaries.css">
+
+</head>
+    <body>
+        <nav id="desktop-nav"> 
+            <div class="logo"> <img src="./assets/PLBY.png" alt="plby" ></div>
+                <ul class="nav-links">
+
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#project">Project</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+            </div>
+        </nav>
+        <nav id="hamburger-nav">
+            <div class="logo"> <img src="./assets/PLBY.png" alt="plby" ></div>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onclick="toggleMenu()">
+                    <span></span> <!-- hamburger lines-->
+                    <span></span> <!-- hamburger lines-->
+                    <span></span> <!-- hamburger lines-->
+                </div>
+                <div class="menu-links">
+                    <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                    <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                    <li><a href="#project" onclick="toggleMenu()">Project</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                </div>
+            </div>
+        </nav>
+
+    <section id = "profile">
+
+        <div class="section_pic-container">
+                <img src="./assets/Eye-logo.png" alt="PLBY profile pic"/>
+            </div>
+
+            <div class="section_text">
+                <p class="section_text_p1" > Hello, I'm</p>
+                <h1 class="title"> Angelo Palabay</h1>
+                
+                <span class="typewriter-text"> </span> <label for=""></label>
+
+            
+            <div class="btn-container">
+                <button 
+                    class="btn btn-color-2" 
+                    onclick="window.open('./assets/CV-Palabay.pdf')"
+                    > 
+                    Download CV
+                </button>
+                <button 
+                class="btn btn-color-1" 
+                onclick="location.href='./#contact'"> 
+                    Contact Info
+            </button>
+
+
+            </div>
+            <div class="social-container">
+                <img 
+                src="./assets/github.png" 
+                alt="Github profile"
+                class="icon"
+                onclick="location.href='https://github.com/yabalap'"
+                />
+                <img 
+                src="./assets/steam-logos.png" 
+                alt="Steam profile"
+                class="icon"
+                onclick="location.href='https://steamcommunity.com/profiles/76561198342953323/'"
+                />
+            </div>
+        </div>
+    </section>
+
+
+        <script src="script.js"> </script>
+
+    </body>
+</html>
