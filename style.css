@@ -196,16 +196,13 @@ section {
     margin-bottom: 1rem;
 
 }
-.typewriter-text{
+.typewriter-text , .job-text{
     font-size: 1.5rem;
     font-weight: bold;
     color: rgb(181, 181, 181);
     margin-bottom: 20px;
 }
 
-.typewriter-label{
-    font-size: 1.5rem;
-}
 .title {
     font-size: 3rem;
     text-align: center;
@@ -244,26 +241,30 @@ section {
 
 }
 
-.btn-color-1, .btn-color-2 {
-    border: rgb(53, 53, 53 ) 0.1rem ;
+.btn-color-1, 
+.btn-color-2 {
+    margin-top: 10px;
+    border: rgb(53, 53, 53 ) 0.1rem  solid;
 }
-.btn-color-1:hover, .btn-color-2:hover {
+.btn-color-1:hover, 
+.btn-color-2:hover {
 cursor: pointer;
 }
-.btn-color-1, .btn-color-2:hover {
-    background: rgb(53, 53, 53 ) 0.1rem ;
+.btn-color-1, 
+.btn-color-2:hover {
+    background: rgb(53, 53, 53);
     color: white;
 
 }
 .btn-color-1:hover {
-    background: rgb(0, 0, 0 ) m ;
+    background: rgb(0, 0, 0 );
 }
 .btn-color-2 {
     background: none
 }
 
 .btn-color-2:hover {
-    border: rgb(55, 55, 55) 0,1rem solid;
+    border: rgb(255, 255, 255) 0.1rem solid;
 }
 
 .btn-container {
@@ -271,3 +272,77 @@ cursor: pointer;
 }
 
 
+/*About*/
+
+
+#about {
+    position: relative;
+  }
+  
+  .about-containers {
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .about-details-container {
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .about-containers,
+  .about-details-container {
+    display: flex;
+  }
+  
+  .about-pic {
+    border-radius: 2rem;
+  }
+  
+  .arrow {
+    position: absolute;
+    right: -5rem;
+    bottom: 2.5rem;
+  }
+  
+  .details-container {
+    padding: 1.5rem;
+    flex: 1;
+    background: white;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .details-container:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    transform: translateY(-5px); /* Slight lift effect */
+  }
+  
+  .section-container {
+    gap: 4rem;
+    height: 80%;
+  }
+  
+  .section_pic-container1 {
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+    display: flex;
+    border-radius: 2rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .section_pic-container1:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    transform: translateY(-5px); /* Slight lift effect */
+    border-radius: 2rem;
+
+  }
+
+  .typewriter-about{
+    color: black;   
+    font-weight: bold;
+
+}

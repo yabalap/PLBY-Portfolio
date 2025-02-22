@@ -8,37 +8,61 @@ function toggleMenu() {
 
 }
 
-const texts = [
-    "FRONT-END DEVELOPER",
-    "WEB DEVELOPER",
-    "JLPT N4"
-];
+const texts1 = ["FRONT-END", "WEB"];
+const texts2 = ["FRONT-END", "WEB"]; // New texts for .typewriter-about
 
-let speed = 100;
+let speed = 200;
 const textElement = document.querySelector(".typewriter-text");
+const textElement1 = document.querySelector(".typewriter-about");
 
-let textIndex = 0;
-let charIndex = 0;
+let textIndex1 = 0, charIndex1 = 0;
+let textIndex2 = 0, charIndex2 = 0;
 
-function typeWriter() {
-    if (charIndex < texts[textIndex].length) {
-        textElement.innerHTML += texts[textIndex].charAt(charIndex);
-        charIndex++;
-        setTimeout(typeWriter, speed);
+function typeWriter1() {
+    if (charIndex1 < texts1[textIndex1].length) {
+        textElement.innerHTML += texts1[textIndex1].charAt(charIndex1);
+        charIndex1++;
+        setTimeout(typeWriter1, speed);
     } else {
-        setTimeout(eraseText, 1000);
+        setTimeout(eraseText1, 2000);
     }
 }
 
-function eraseText() {
+function eraseText1() {
     if (textElement.innerHTML.length > 0) {
         textElement.innerHTML = textElement.innerHTML.slice(0, -1);
-        setTimeout(eraseText, 50);
+        setTimeout(eraseText1, 50);
     } else {
-        textIndex = (textIndex + 1) % texts.length;
-        charIndex = 0;
-        setTimeout(typeWriter, 500);
+        textIndex1 = (textIndex1 + 1) % texts1.length;
+        charIndex1 = 0;
+        setTimeout(typeWriter1, 500);
     }
 }
 
-window.onload = typeWriter;
+function typeWriter2() {
+    if (charIndex2 < texts2[textIndex2].length) {
+        textElement1.innerHTML += texts2[textIndex2].charAt(charIndex2);
+        charIndex2++;
+        setTimeout(typeWriter2, speed);
+    } else {
+        setTimeout(eraseText2, 2000);
+    }
+}
+
+function eraseText2() {
+    if (textElement1.innerHTML.length > 0) {
+        textElement1.innerHTML = textElement1.innerHTML.slice(0, -1);
+        setTimeout(eraseText2, 50);
+    } else {
+        textIndex2 = (textIndex2 + 1) % texts2.length;
+        charIndex2 = 0;
+        setTimeout(typeWriter2, 500);
+    }
+}
+
+// Start both typewriter effects
+typeWriter1();
+typeWriter2();
+
+
+
