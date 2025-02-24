@@ -1,0 +1,192 @@
+:root {
+    --base-color: white;
+    --bg-color: white;
+    --bg-color-a: rgb(0, 0, 0);
+    --details-color: white;
+
+    --text-color: black;
+    --text-color-sub: rgb(85, 85, 85);
+    --sec-text: rgb(181, 181, 181);
+    --thi-text: white;
+
+    --box-shadow-color: rgb(7, 11, 11);
+    --box-shadow-color-a: rgba(0, 0, 0, 0.2);
+
+    --border-color: rgb(53, 53, 53);
+    --border-color-a: 0.1rem solid rgb(53, 53, 53);
+    --border-color-b: rgb(163, 163, 163);
+
+    --base-color-cont: rgb(250, 250, 250);
+    --exp-color-cont: rgb(250, 250, 250);
+
+    --btn-hover-color: rgb(255, 255, 255);
+
+    /* Dark Mode Theme Colors */
+    --primary-accent: #BB86FC;
+    --secondary-accent: #03DAC6;
+    --btn-color: #6200EE;
+    --btn-hover: #3700B3;
+}
+
+/* DARK MODE */
+.darkmode {
+    --base-color: #121212;
+    --bg-color: #181818;
+    --bg-color-a: #000000;
+    --details-color: #b3b3b3;
+
+    --text-color: #ffffff;
+    --text-color-sub: #b3b3b3;
+    --sec-text: #8c8c8c;
+    --thi-text: #e0e0e0;
+
+    --box-shadow-color: rgba(0, 0, 0, 0.8);
+    --box-shadow-color-a: rgba(0, 0, 0, 0.5);
+
+    --border-color: #292929;
+    --border-color-a: 0.1rem solid #444444;
+    --border-color-b: #555555;
+
+    --base-color-cont: #181818;
+    --exp-color-cont: #1f1f1f;
+
+    --btn-hover-color: #333333;
+
+    /* Dark Mode Specific Colors */
+    --primary-accent: #BB86FC;
+    --secondary-accent: #03DAC6;
+    --btn-color: #6200EE;
+    --btn-hover: #3700B3;
+}
+
+/* Apply Dark Mode Colors */
+body.darkmode {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navigation */
+nav.darkmode {
+    background-color: var(--bg-color-a);
+    padding: 15px;
+}
+
+.nav-links a.darkmode {
+    color: var(--primary-accent);
+    text-decoration: none;
+}
+
+.nav-links a.darkmode:hover {
+    color: var(--secondary-accent);
+}
+
+/* Buttons */
+.btn.darkmode {
+    background-color: transparent;  /* Transparent background */
+    color: white;  /* White text */
+    border: 2px solid white;  /* White border */
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+/* Button Hover Effect */
+.btn.darkmode:hover {
+    background-color: white;
+    color: black;  /* Black text on hover */
+}
+
+
+/* Sections */
+.section_text_p1.darkmode {
+    color: var(--primary-accent);
+}
+
+.title.darkmode {
+    color: var(--secondary-accent);
+}
+
+/* Links */
+a.darkmode {
+    color: var(--primary-accent);
+    text-decoration: none;
+}
+
+a.darkmode:hover {
+    color: var(--secondary-accent);
+}
+
+/* Footer */
+footer.darkmode {
+    background-color: var(--bg-color-a);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+}
+
+.darkmode .theme-image {
+    content: url('./assets/dark-logo.png');
+}
+
+#dark-mode-toggle {
+    position: relative;
+    top: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#dark-mode-icon {
+    width: 50px; /* Increase size */
+    height: 50px; /* Increase size */
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+#dark-mode-toggle:hover #dark-mode-icon {
+    transform: scale(1.1); /* Slight hover effect */
+}
+
+
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white; /* Default color */
+    font-size: 10px;
+    user-select: none;
+    animation: snowfall linear infinite;
+}
+
+.snowflake:nth-child(even) {
+    color: lightgrey; /* Alternating grey and white */
+}
+
+.snowflake:nth-child(odd) {
+    color: white;
+}
+
+
+  
+.scrolling-text-container {
+    width: 100vw; /* Full screen width */
+    white-space: nowrap;
+    position: relative;
+    margin-left: 0;
+  }
+  
+  .scrolling-wrapper {
+    display: flex;
+    width: max-content;
+    animation: scrollText 90s linear infinite;
+  }
+  
+  .scrolling-text {
+    font-size: 15rem;
+    font-weight: bold;
+    color: var(--text-color);
+    padding-right: 10px; /* Very small gap */
+  }
+  

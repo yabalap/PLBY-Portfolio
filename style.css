@@ -6,17 +6,28 @@
     margin: 0;
     padding: 0;
 }
+html, body {
+    overflow: auto; /* Enables scrolling */
+    -ms-overflow-style: none; /* Hides scrollbar in IE & Edge */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
 
+  }
+  
 body {
+
+    background-color: var(--bg-color);
     font-family: "Poppins" , sans-serif;
+
 }
+
+
 
 html {
     scroll-behavior: smooth;
 }
 
 p{
-    color: rgb(85, 85, 85);
+    color: var(--text-color);
 }
 
 /*Transition*/
@@ -29,6 +40,10 @@ a, .btn{
 
 nav, .nav-links{
     display: flex  ;
+}
+.list{
+    color: var(--text-color);
+
 }
 
 nav {
@@ -54,8 +69,7 @@ a:hover {
     color: grey;
     text-decoration: underline;
     text-underline-offset: 1rem;
-    text-decoration-color: rgb(181, 181, 181);
-
+    text-decoration-color: var(--sec-text);
 }
 
 .logo {
@@ -177,6 +191,20 @@ section {
     height: 400px;
     width: 400px;
     margin: auto;
+
+}
+.section_pic-container img {
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+.section_pic-container img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px var( --box-shadow-color);
+    border-radius: 50%;
+
 }
 
 .section_text {
@@ -199,7 +227,7 @@ section {
 .typewriter-text , .job-text{
     font-size: 1.5rem;
     font-weight: bold;
-    color: rgb(181, 181, 181);
+    color: var(--sec-text);
     margin-bottom: 20px;
 }
 
@@ -208,13 +236,7 @@ section {
     text-align: center;
 }
 
-#social-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-    gap: 1rem;
 
-}
 /* ICONS */
 
 .icon {
@@ -240,31 +262,40 @@ section {
     border-radius: 2rem;
 
 }
+.btn-color-1{
+    background-color: var(--bg-color);
+    color: var(--bg-color); /* Change font color on hover */
+
+}
 
 .btn-color-1, 
 .btn-color-2 {
+
     margin-top: 10px;
-    border: rgb(53, 53, 53 ) 0.1rem  solid;
+    
+    border: var(--border-color-a);
 }
+
 .btn-color-1:hover, 
 .btn-color-2:hover {
 cursor: pointer;
 }
 .btn-color-1, 
 .btn-color-2:hover {
-    background: rgb(53, 53, 53);
-    color: white;
+    color: var(--bg-color);
 
 }
 .btn-color-1:hover {
-    background: rgb(0, 0, 0 );
+    background: var(--bg-color-a);
 }
 .btn-color-2 {
     background: none
 }
 
 .btn-color-2:hover {
-    border: rgb(255, 255, 255) 0.1rem solid;
+    border: var( --text-color-sub) 0.1rem solid;
+    color: var(--bg-color);
+    background-color: var(--text-color);
 }
 
 .btn-container {
@@ -297,7 +328,12 @@ cursor: pointer;
   
   .about-pic {
     border-radius: 2rem;
+    transition: transform 0.5s ease-in-out;
+    animation: float 3s ease-in-out infinite;
   }
+  .about-pic:hover {
+    transform: scale(1.1) rotate(5deg);
+}
   
   .arrow {
     position: absolute;
@@ -308,16 +344,16 @@ cursor: pointer;
   .details-container {
     padding: 1.5rem;
     flex: 1;
-    background: white;
+    background: var(--details-color);
     border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: rgb(163, 163, 163);
+    border: var(--border-color-a) 0.1rem solid;
+    border-color: var(--border-color-b);
     text-align: center;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
   .details-container:hover{
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    box-shadow: 0 10px 20px var(--box-shadow-color-a); /* Subtle shadow effect */
     transform: translateY(-5px); /* Slight lift effect */
   }
   
@@ -332,17 +368,202 @@ cursor: pointer;
     margin: auto 0;
     display: flex;
     border-radius: 2rem;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  .section_pic-container1:hover{
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-    transform: translateY(-5px); /* Slight lift effect */
-    border-radius: 2rem;
+    background-color: var(--text-color);
 
   }
+
 
   .typewriter-about{
-    color: black;   
+    color: var(--text-color);   
     font-weight: bold;
 
+}
+
+/* Experience */
+
+#experience{
+    position: relative;
+}
+
+
+.experience-sub-title{
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    
+}
+
+.experience-details-container{
+   display:flex ;
+   justify-content: center;
+   flex-direction: column; 
+}
+.article-container{
+    display: flex;
+    text-align: initial;
+    flex-wrap: wrap;
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+article{
+    display: flex;
+    width: 10rem;
+    justify-content: left;
+    gap: 0.5rem;
+
+}
+article .icon{
+    cursor: default;
+}
+
+/* PROJECTS SECTION */
+
+#projects {
+    position: relative;
+  }
+  
+  .color-container {
+    border-color: var(--border-color-b);
+    background: var(--bg-color);
+  }
+  
+  .project-img {
+    border-radius: 2rem;
+    width: 90%;
+    height: 90%;
+  }
+  
+  .project-title {
+    margin: 1rem;
+    color: var(--text-color);
+  }
+  
+  .project-btn {
+    color: var(--text-color);
+    border-color: var(--border-color-a);
+  }
+
+
+
+
+
+/* CONTACT */
+
+#contact {
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+  }
+  
+  .contact-info-upper-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    border: var(--border-color) 0.1rem solid;
+    border-color: var(--border-color-a);
+    background: (250, 250, 250);
+    margin: 2rem auto;
+    padding: 0.5rem;
+  }
+  
+  .contact-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem;
+  }
+  
+  .contact-info-container p {
+    font-size: larger;
+  }
+  
+  .contact-icon {
+    cursor: default;
+  }
+  
+  .email-icon {
+    height: 2.5rem;
+  }
+  
+  
+
+  /* FOOTER SECTION */
+  
+  footer {
+    height: 26vh;
+    margin: 0 1rem;
+  }
+  
+  footer p {
+    text-align: center;
+  }
+
+
+  
+
+.git-icon{
+    height: 3rem;
+    margin-right: 15px;    
+    margin-left: 15px;
+    border-radius: 50%;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+
+}
+
+.git-icon:hover{
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 0 25px var(--text-color);
+    border-radius: 50%;
+}
+
+.steam-icon{
+    height: 3rem;
+    margin-right: 15px;    
+    margin-left: 15px;
+    border-radius: 50%;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+
+}
+
+.steam-icon:hover{
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 0 25px rgb(13, 32, 78) ;
+    border-radius: 50%;
+}
+
+.insta-icon{
+    height: 3rem;
+    margin-right: 15px;    
+    margin-left: 15px;
+    border-radius: 50%;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+
+}
+
+.insta-icon:hover{
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 0 25px #fa7e1e;
+    border-radius: 50%;
+}
+
+.discord-icon{
+    height: 3rem;
+    margin-right: 15px;    
+    margin-left: 15px;
+    border-radius: 50%;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+
+}
+
+.discord-icon:hover{
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 0 25px rgb(27, 92, 156);
+    border-radius: 50%;
 }

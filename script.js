@@ -64,5 +64,80 @@ function eraseText2() {
 typeWriter1();
 typeWriter2();
 
+document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    const toggleButton = document.getElementById("dark-mode-toggle");
+    const darkModeIcon = document.getElementById("dark-mode-icon");
 
+    // Image paths
+    const moonIcon = "./assets/dark-mode.png"; // Dark mode icon
+    const sunIcon = "./assets/light-mode.png"; // Light mode icon
+
+    // Apply stored theme preference
+    if (localStorage.getItem("darkMode") === "enabled") {
+        body.classList.add("darkmode");
+        darkModeIcon.src = sunIcon;
+    } else {
+        body.classList.remove("darkmode");
+        darkModeIcon.src = moonIcon;
+    }
+
+    // Update images based on theme
+    updateThemeImages();
+
+    // Toggle function
+    toggleButton.addEventListener("click", () => {
+        const isDarkMode = body.classList.toggle("darkmode");
+
+        // Update localStorage & icon
+        localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
+        darkModeIcon.src = isDarkMode ? sunIcon : moonIcon;
+
+        // Update theme images dynamically
+        updateThemeImages();
+    });
+});
+
+/**
+ * Updates all images with the correct theme version.
+ */
+function updateThemeImages() {
+    document.querySelectorAll(".theme-image").forEach(img => {
+        const isDarkMode = document.body.classList.contains("darkmode");
+        const newSrc = isDarkMode ? img.dataset.dark : img.dataset.light;
+        
+        if (newSrc) {
+            img.src = newSrc;
+        }
+    });
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const numFlakes = 50; // Number of snowflakes
+    for (let i = 0; i < numFlakes; i++) {
+        let snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.innerHTML = "❆"; // Snowflake character
+        document.body.appendChild(snowflake);
+
+        let size = Math.random() * 10 + 5; // Random size
+        let left = Math.random() * window.innerWidth; // Random horizontal position
+        let duration = Math.random() * 5 + 5; // Random fall duration
+        let delay = Math.random() * 5; // Random delay
+
+        snowflake.style.left = left + "px";
+        snowflake.style.fontSize = size + "px";
+        snowflake.style.animationDuration = duration + "s";
+        snowflake.style.animationDelay = delay + "s";
+    }
+});
+
+
+AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    once: false, // Keep animating when scrolling back
+    mirror: false, // Disable animation when scrolling back up
+    offset: 100, // Adjusts when animation triggers
+  });
 

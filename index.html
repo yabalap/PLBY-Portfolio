@@ -7,20 +7,38 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaquaries.css">
+    <link rel="stylesheet" href="bg.css">
 
+    <link rel="icon" type="image/png" href="./assets/PLBY-tab-icon.png">
+
+    
 </head>
-    <body>
+    <body class="darkmode">
         <nav id="desktop-nav"> 
-            <div class="logo"> <img src="./assets/PLBY.png" alt="plby" ></div>
+            <div class="logo">
+               
+              <img 
+              src="./assets/logo-light.png" 
+              alt="PLBY profile pic" 
+              class="theme-image"
+              data-light="./assets/logo-light.png"
+              data-dark="./assets/dark-logo.png"
+          />
+          
+
+            </div>
                 <ul class="nav-links">
 
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#project">Project</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a class="list" href="#about">About</a></li>
+                    <li><a class="list"href="#experience">Experience</a></li>
+                    <li><a class="list"href="#projects">Project</a></li>
 
                 </ul>
+
             </div>
+            <button id="dark-mode-toggle">
+              <img id="dark-mode-icon" src="./assets/dark-mode.png" alt="Dark Mode Toggle">
+          </button>
         </nav>
         <nav id="hamburger-nav">
             <div class="logo"> <img src="./assets/PLBY.png" alt="plby" ></div>
@@ -33,7 +51,7 @@
                 <div class="menu-links">
                     <li><a href="#about" onclick="toggleMenu()">About</a></li>
                     <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                    <li><a href="#project" onclick="toggleMenu()">Project</a></li>
+                    <li><a href="#projects" onclick="toggleMenu()">Project</a></li>
                     <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
                 </div>
             </div>
@@ -53,33 +71,13 @@
                 </p>
 
             <div class="btn-container">
+
                 <button 
-                    class="btn btn-color-2" 
-                    onclick="window.open('./assets/CV-Palabay.pdf')"
-                    > 
-                    Download CV
-                </button>
-                <button 
-                class="btn btn-color-1" 
+                class="btn btn-color-2 project-btn" 
                 onclick="location.href='./#contact'"> 
                     Contact Info
             </button>
 
-
-            </div>
-            <div class="social-container">
-                <img 
-                src="./assets/github.png" 
-                alt="Github profile"
-                class="icon"
-                onclick="location.href='https://github.com/yabalap'"
-                />
-                <img 
-                src="./assets/steam-logos.png" 
-                alt="Steam profile"
-                class="icon"
-                onclick="location.href='https://steamcommunity.com/profiles/76561198342953323/'"
-                />
             </div>
         </div>
     </section>
@@ -131,8 +129,233 @@
         />
       </section>
 
+      <section id="experience">
+        <p class="section_text_p1">Explore My</p>
+        <h1 class="title">Experience</h1>
+        <div class="experience-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <div class="article-container">
+                <h2 class="experience-sub-title">/*Frontend-Development*/</h2>
 
+                <article>
+                    <img
+                      src="./assets/checkmark.png"
+                      alt="Experience icon"
+                      class="icon"
+                    />
+                    <div>
+                      <h3>React JS</h3>
+                      <p>Basic</p>
+                    </div>
+                  </article>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>HTML</h3>
+                    <p>Experienced</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>CSS</h3>
+                    <p>Experienced</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Figma</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>JavaScript</h3>
+                    <p>Basic</p>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+            <div class="details-container">
+
+              <div class="article-container">
+                <h2 class="experience-sub-title">//Backend-Development// </h2>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>PostgreSQL</h3>
+                    <p>Basic</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Node JS</h3>
+                    <p>Basic</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Python</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>Java</h3>
+                    <p>Intermediate</p>
+                  </div>
+                </article>
+                <article>
+                  <img
+                    src="./assets/checkmark.png"
+                    alt="Experience icon"
+                    class="icon"
+                  />
+                  <div>
+                    <h3>MySQL</h3>
+                    <p>Basic</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          src="./assets/arrow.png"
+          alt="Arrow icon"
+          class="icon arrow"
+          onclick="location.href='./#projects'"
+        />
+      </section>
+
+      <section id="projects">
+        <p class="section_text_p1">Browse My Recent</p>
+        <h1 class="title">Project</h1>
+          <div class="experience-details-container">
+          <div class="about-containers">
+            <div class="details-container color-container">
+              <div class="article-container">
+                <img
+                  src="./assets/Lakbay.png"
+                  alt="Project 3"
+                  class="project-img"
+                />
+              </div>
+              <h2 class="experience-sub-title project-title">Lakbay Kain & Kape</h2>
+              <div class="btn-container">
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="location.href='https://github.com/miigo-dev/lakbay-sales-inventory'"
+                >
+                  Github
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          src="./assets/arrow.png"
+          alt="Arrow icon"
+          class="icon arrow"
+          onclick="location.href='./#contact'"
+        />
+      </section>
+
+      <section id="contact">
+        <div class="scrolling-text-container">
+          <div class="scrolling-wrapper">
+          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
+          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
+          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
+          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
+          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
+        </div>
+      </div>
+        <div class="contact-info-upper-container">
+          <div class="contact-info-container">
+
+            <p><a class="list" href="mailto:gelspalabay05@gmail.com">gelspalabay05@gmail.com</a></p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <nav>
+          <div class="nav-links-container">
+            <div class="social-container">
+              <img 
+              src="./assets/github.png" 
+              alt="Github profile"
+              onclick="location.href='https://github.com/yabalap'"
+              class="git-icon"
+              />
+              <img 
+              src="./assets/Steam_icon_logo.svg.png" 
+              alt="Steam profile"
+              class="steam-icon"
+              onclick="location.href='https://steamcommunity.com/profiles/76561198342953323/'"
+              />
+              <img 
+              src="./assets/instagram-icon.png" 
+              alt="Steam profile"
+              class="insta-icon"
+              onclick="location.href='https://www.instagram.com/paloves20_youmus/'"
+              />
+              <img 
+              src="./assets/discord-logo.jpg" 
+              alt="Steam profile"
+              class="discord-icon"
+              onclick="location.href='https://discordapp.com/users/721930271011766282'"
+              />
+          </div>
+          </div>
+        </nav>
+        <img 
+        src="./assets/logo-light.png" 
+        alt="PLBY profile pic" 
+        class="theme-image"
+        data-light="./assets/logo-light.png"
+        data-dark="./assets/dark-logo.png"
+    />      </footer>
         <script src="script.js"> </script>
-
     </body>
 </html>
