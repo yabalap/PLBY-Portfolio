@@ -27,34 +27,25 @@
           
 
             </div>
-                <ul class="nav-links">
-
-                    <li><a class="list" href="#about">About</a></li>
-                    <li><a class="list"href="#experience">Experience</a></li>
-                    <li><a class="list"href="#projects">Project</a></li>
-
-                </ul>
-
             </div>
             <button id="dark-mode-toggle">
               <img id="dark-mode-icon" src="./assets/dark-mode.png" alt="Dark Mode Toggle">
           </button>
         </nav>
         <nav id="hamburger-nav">
-            <div class="logo"> <img src="./assets/PLBY.png" alt="plby" ></div>
-            <div class="hamburger-menu">
-                <div class="hamburger-icon" onclick="toggleMenu()">
-                    <span></span> <!-- hamburger lines-->
-                    <span></span> <!-- hamburger lines-->
-                    <span></span> <!-- hamburger lines-->
-                </div>
-                <div class="menu-links">
-                    <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                    <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                    <li><a href="#projects" onclick="toggleMenu()">Project</a></li>
-                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-                </div>
-            </div>
+            <div class="logo"> 
+              <img 
+              src="./assets/logo-light.png" 
+              alt="PLBY profile pic" 
+              class="theme-image"
+              data-light="./assets/logo-light.png"
+              data-dark="./assets/dark-logo.png"
+          /> 
+          
+        </div>
+        <button id="dark-mode-toggle-mobile">
+          <img id="dark-mode-icon-mobile" src="./assets/dark-mode.png" alt="Dark Mode Toggle">
+      </button>
         </nav>
 
     <section id = "profile">
@@ -125,6 +116,8 @@
           src="./assets/arrow.png"
           alt="Arrow icon"
           class="icon arrow"
+          data-light="./assets/arrow.png"
+          data-dark="./assets/arrow-dark.png"
           onclick="location.href='./#experience'"
         />
       </section>
@@ -263,6 +256,8 @@
           src="./assets/arrow.png"
           alt="Arrow icon"
           class="icon arrow"
+          data-light="./assets/arrow.png"
+          data-dark="./assets/arrow-dark.png"
           onclick="location.href='./#projects'"
         />
       </section>
@@ -296,8 +291,12 @@
           src="./assets/arrow.png"
           alt="Arrow icon"
           class="icon arrow"
+          data-light="./assets/arrow.png"
+          data-dark="./assets/arrow-dark.png"
           onclick="location.href='./#contact'"
         />
+
+        
       </section>
 
       <section id="contact">
@@ -327,6 +326,8 @@
               alt="Github profile"
               onclick="location.href='https://github.com/yabalap'"
               class="git-icon"
+              data-light="./assets/github.png"
+              data-dark="./assets/github-dark.png"
               />
               <img 
               src="./assets/Steam_icon_logo.svg.png" 

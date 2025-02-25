@@ -45,7 +45,10 @@ nav, .nav-links{
     color: var(--text-color);
 
 }
+.desktop-nav{
+    right: 100%;
 
+}
 nav {
 
     justify-content: space-around;
@@ -73,8 +76,8 @@ a:hover {
 }
 
 .logo {
-
     font-size: 2rem;
+    margin-right: 16rem;
 }
 
 .logo:hover {
@@ -218,6 +221,8 @@ section {
 
 .section_text_p1{
     text-align: center;
+    margin-bottom: 0.1rem;
+    
 }
 .section_text_p2{
     font-size: 1.75rem;
@@ -234,6 +239,7 @@ section {
 .title {
     font-size: 3rem;
     text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 
@@ -534,7 +540,7 @@ article .icon{
 
 .steam-icon:hover{
     transform: scale(1.1) rotate(2deg);
-    box-shadow: 0 0 25px rgb(13, 32, 78) ;
+    box-shadow: 0 0 25px rgb(20, 55, 136) ;
     border-radius: 50%;
 }
 

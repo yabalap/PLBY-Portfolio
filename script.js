@@ -63,11 +63,12 @@ function eraseText2() {
 // Start both typewriter effects
 typeWriter1();
 typeWriter2();
-
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
-    const toggleButton = document.getElementById("dark-mode-toggle");
-    const darkModeIcon = document.getElementById("dark-mode-icon");
+    const desktopToggle = document.getElementById("dark-mode-toggle");
+    const desktopIcon = document.getElementById("dark-mode-icon");
+    const mobileToggle = document.getElementById("dark-mode-toggle-mobile");
+    const mobileIcon = document.getElementById("dark-mode-icon-mobile");
 
     // Image paths
     const moonIcon = "./assets/dark-mode.png"; // Dark mode icon
@@ -76,41 +77,64 @@ document.addEventListener("DOMContentLoaded", () => {
     // Apply stored theme preference
     if (localStorage.getItem("darkMode") === "enabled") {
         body.classList.add("darkmode");
-        darkModeIcon.src = sunIcon;
+        desktopIcon.src = sunIcon;
+        mobileIcon.src = sunIcon;
     } else {
         body.classList.remove("darkmode");
-        darkModeIcon.src = moonIcon;
+        desktopIcon.src = moonIcon;
+        mobileIcon.src = moonIcon;
     }
 
     // Update images based on theme
     updateThemeImages();
 
-    // Toggle function
-    toggleButton.addEventListener("click", () => {
+    // Toggle function for both buttons
+    function toggleDarkMode() {
         const isDarkMode = body.classList.toggle("darkmode");
-
-        // Update localStorage & icon
         localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
-        darkModeIcon.src = isDarkMode ? sunIcon : moonIcon;
-
-        // Update theme images dynamically
+        desktopIcon.src = isDarkMode ? sunIcon : moonIcon;
+        mobileIcon.src = isDarkMode ? sunIcon : moonIcon;
         updateThemeImages();
-    });
+    }
+
+    desktopToggle.addEventListener("click", toggleDarkMode);
+    mobileToggle.addEventListener("click", toggleDarkMode);
+
+    /**
+     * Updates all images with the correct theme version.
+     */
+    function updateThemeImages() {
+        document.querySelectorAll("[data-light][data-dark]").forEach(img => {
+            const isDarkMode = document.body.classList.contains("darkmode");
+            img.src = isDarkMode ? img.dataset.dark : img.dataset.light;
+        });
+    }
+
+    // Apply styles for mobile nav same as desktop nav
+    const style = document.createElement("style");
+    style.innerHTML = `
+        #dark-mode-toggle-mobile {
+            position: relative;
+            top: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        #dark-mode-icon-mobile {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.2s ease, opacity 0.3s ease;
+        }
+        
+        #dark-mode-toggle-mobile:hover #dark-mode-icon-mobile {
+            transform: scale(1.1);
+        }
+    `;
+    document.head.appendChild(style);
 });
 
-/**
- * Updates all images with the correct theme version.
- */
-function updateThemeImages() {
-    document.querySelectorAll(".theme-image").forEach(img => {
-        const isDarkMode = document.body.classList.contains("darkmode");
-        const newSrc = isDarkMode ? img.dataset.dark : img.dataset.light;
-        
-        if (newSrc) {
-            img.src = newSrc;
-        }
-    });
-}
 
 
 document.addEventListener("DOMContentLoaded", function () {

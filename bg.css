@@ -86,7 +86,7 @@ nav.darkmode {
     background-color: transparent;  /* Transparent background */
     color: white;  /* White text */
     border: 2px solid white;  /* White border */
-    padding: 10px 20px;
+    position: relative;    
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
@@ -118,13 +118,7 @@ a.darkmode:hover {
     color: var(--secondary-accent);
 }
 
-/* Footer */
-footer.darkmode {
-    background-color: var(--bg-color-a);
-    color: var(--text-color);
-    text-align: center;
-    padding: 20px;
-}
+
 
 .darkmode .theme-image {
     content: url('./assets/dark-logo.png');
@@ -132,7 +126,7 @@ footer.darkmode {
 
 #dark-mode-toggle {
     position: relative;
-    top: 20px;
+    left: 5%;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -148,6 +142,7 @@ footer.darkmode {
 #dark-mode-toggle:hover #dark-mode-icon {
     transform: scale(1.1); /* Slight hover effect */
 }
+
 
 
 
@@ -184,7 +179,7 @@ footer.darkmode {
   }
   
   .scrolling-text {
-    font-size: 15rem;
+    font-size: 10rem;
     font-weight: bold;
     color: var(--text-color);
     padding-right: 10px; /* Very small gap */
