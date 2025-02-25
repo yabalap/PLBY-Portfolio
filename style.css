@@ -77,7 +77,6 @@ a:hover {
 
 .logo {
     font-size: 2rem;
-    margin-right: 16rem;
 }
 
 .logo:hover {
@@ -221,6 +220,8 @@ section {
 
 .section_text_p1{
     text-align: center;
+    margin-top: 2rem;
+
     margin-bottom: 0.1rem;
     
 }
@@ -365,7 +366,7 @@ cursor: pointer;
   
   .section-container {
     gap: 4rem;
-    height: 80%;
+    height: 85%;
   }
   
   .section_pic-container1 {
@@ -573,3 +574,5 @@ article .icon{
     box-shadow: 0 0 25px rgb(27, 92, 156);
     border-radius: 50%;
 }
+
+
