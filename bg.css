@@ -88,7 +88,7 @@ nav.darkmode {
     border: 2px solid white;  /* White border */
     position: relative;    
     border-radius: 5px;
-    cursor: pointer;
+    cursor: default;
     transition: 0.3s ease-in-out;
 }
 
