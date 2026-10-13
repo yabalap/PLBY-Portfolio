@@ -1,187 +1,46 @@
 :root {
-    --base-color: white;
-    --bg-color: white;
-    --bg-color-a: rgb(0, 0, 0);
-    --details-color: white;
-
-    --text-color: black;
-    --text-color-sub: rgb(85, 85, 85);
-    --sec-text: rgb(181, 181, 181);
-    --thi-text: white;
-
-    --box-shadow-color: rgb(7, 11, 11);
-    --box-shadow-color-a: rgba(0, 0, 0, 0.2);
-
-    --border-color: rgb(53, 53, 53);
-    --border-color-a: 0.1rem solid rgb(53, 53, 53);
-    --border-color-b: rgb(163, 163, 163);
-
-    --base-color-cont: rgb(250, 250, 250);
-    --exp-color-cont: rgb(250, 250, 250);
-
-    --btn-hover-color: rgb(255, 255, 255);
-
-    /* Dark Mode Theme Colors */
-    --primary-accent: #BB86FC;
-    --secondary-accent: #03DAC6;
-    --btn-color: #6200EE;
-    --btn-hover: #3700B3;
+    color-scheme: light;
+    --color-primary: #18181B;
+    --color-on-primary: #FFFFFF;
+    --color-accent: #2563EB;
+    --color-accent-text: #2563EB;
+    --color-on-accent: #FFFFFF;
+    --color-background: #FAFAFA;
+    --color-foreground: #09090B;
+    --color-card: #FFFFFF;
+    --color-muted: #E8ECF0;
+    --color-muted-foreground: #475569;
+    --color-border: #E4E4E7;
+    --color-ring: #18181B;
+    --shadow-md: 0 10px 30px rgba(9, 9, 11, 0.06);
+    --shadow-lg: 0 20px 40px rgba(9, 9, 11, 0.1);
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4.5rem;
+    --font-heading: "Archivo", sans-serif;
+    --font-body: "Space Grotesk", sans-serif;
+    --header-height: 4.5rem;
+    --radius: 16px;
 }
 
-/* DARK MODE */
-.darkmode {
-    --base-color: #121212;
-    --bg-color: #181818;
-    --bg-color-a: #000000;
-    --details-color: #b3b3b3;
-
-    --text-color: #ffffff;
-    --text-color-sub: #b3b3b3;
-    --sec-text: #8c8c8c;
-    --thi-text: #e0e0e0;
-
-    --box-shadow-color: rgba(0, 0, 0, 0.8);
-    --box-shadow-color-a: rgba(0, 0, 0, 0.5);
-
-    --border-color: #292929;
-    --border-color-a: 0.1rem solid #444444;
-    --border-color-b: #555555;
-
-    --base-color-cont: #181818;
-    --exp-color-cont: #1f1f1f;
-
-    --btn-hover-color: #333333;
-
-    /* Dark Mode Specific Colors */
-    --primary-accent: #BB86FC;
-    --secondary-accent: #03DAC6;
-    --btn-color: #6200EE;
-    --btn-hover: #3700B3;
+html.darkmode {
+    color-scheme: dark;
+    --color-primary: #FAFAFA;
+    --color-on-primary: #09090B;
+    --color-accent: #2563EB;
+    --color-accent-text: #60A5FA;
+    --color-on-accent: #FFFFFF;
+    --color-background: #09090B;
+    --color-foreground: #FAFAFA;
+    --color-card: #18181B;
+    --color-muted: #27272A;
+    --color-muted-foreground: #A1A1AA;
+    --color-border: #3F3F46;
+    --color-ring: #60A5FA;
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.45);
 }
-
-/* Apply Dark Mode Colors */
-body.darkmode {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Arial', sans-serif;
-}
-
-/* Navigation */
-nav.darkmode {
-    background-color: var(--bg-color-a);
-    padding: 15px;
-}
-
-.nav-links a.darkmode {
-    color: var(--primary-accent);
-    text-decoration: none;
-}
-
-.nav-links a.darkmode:hover {
-    color: var(--secondary-accent);
-}
-
-/* Buttons */
-.btn.darkmode {
-    background-color: transparent;  /* Transparent background */
-    color: white;  /* White text */
-    border: 2px solid white;  /* White border */
-    position: relative;    
-    border-radius: 5px;
-    cursor: default;
-    transition: 0.3s ease-in-out;
-}
-
-/* Button Hover Effect */
-.btn.darkmode:hover {
-    background-color: white;
-    color: black;  /* Black text on hover */
-}
-
-
-/* Sections */
-.section_text_p1.darkmode {
-    color: var(--primary-accent);
-}
-
-.title.darkmode {
-    color: var(--secondary-accent);
-}
-
-/* Links */
-a.darkmode {
-    color: var(--primary-accent);
-    text-decoration: none;
-}
-
-a.darkmode:hover {
-    color: var(--secondary-accent);
-}
-
-
-
-.darkmode .theme-image {
-    content: url('./assets/dark-logo.png');
-}
-
-#dark-mode-toggle {
-    position: relative;
-    left: 5%;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-}
-
-#dark-mode-icon {
-    width: 50px; /* Increase size */
-    height: 50px; /* Increase size */
-    transition: transform 0.2s ease, opacity 0.3s ease;
-}
-
-#dark-mode-toggle:hover #dark-mode-icon {
-    transform: scale(1.1); /* Slight hover effect */
-}
-
-
-
-
-.snowflake {
-    position: fixed;
-    top: -10px;
-    color: white; /* Default color */
-    font-size: 10px;
-    user-select: none;
-    animation: snowfall linear infinite;
-}
-
-.snowflake:nth-child(even) {
-    color: lightgrey; /* Alternating grey and white */
-}
-
-.snowflake:nth-child(odd) {
-    color: white;
-}
-
-
-  
-.scrolling-text-container {
-    width: 100vw; /* Full screen width */
-    white-space: nowrap;
-    position: relative;
-    margin-left: 0;
-  }
-  
-  .scrolling-wrapper {
-    display: flex;
-    width: max-content;
-    animation: scrollText 90s linear infinite;
-  }
-  
-  .scrolling-text {
-    font-size: 10rem;
-    font-weight: bold;
-    color: var(--text-color);
-    padding-right: 10px; /* Very small gap */
-  }
-  

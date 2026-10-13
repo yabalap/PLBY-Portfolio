@@ -3,385 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLBY</title>
-
+    <title>PLBY — Angelo Palabay</title>
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem("darkMode");
+                var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                if (stored === "enabled" || (stored !== "disabled" && prefersDark)) {
+                    document.documentElement.classList.add("darkmode");
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="bg.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaquaries.css">
-    <link rel="stylesheet" href="bg.css">
-
-    <link rel="icon" type="image/png" href="./assets/PLBY-tab-icon.png">
-
-    
+    <link rel="icon" type="image/svg+xml" href="./assets/dark-logo.svg">
 </head>
-    <body class="darkmode">
-        <nav id="desktop-nav"> 
-            <div class="logo">
-               
-              <img 
-              src="./assets/logo-light.png" 
-              alt="PLBY profile pic" 
-              class="theme-image"
-              data-light="./assets/logo-light.png"
-              data-dark="./assets/dark-logo.png"
-          />
-          
+<body>
+    <a class="skip-link" href="#profile">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
 
-            </div>
-            </div>
-            <button id="dark-mode-toggle">
-              <img id="dark-mode-icon" src="./assets/dark-mode.png" alt="Dark Mode Toggle">
-          </button>
-        </nav>
-        <nav id="hamburger-nav">
-            <div class="logo"> 
-              <img 
-              src="./assets/logo-light.png" 
-              alt="PLBY profile pic" 
-              class="theme-image"
-              data-light="./assets/logo-light.png"
-              data-dark="./assets/dark-logo.png"
-          /> 
-          
-        </div>
-        <button id="dark-mode-toggle-mobile">
-          <img id="dark-mode-icon-mobile" src="./assets/dark-mode.png" alt="Dark Mode Toggle">
-      </button>
-        </nav>
-
-        <div class="scroll-list_wrp">
-    <section id = "profile">
-      <div class="section-container">
-
-        <div class="section_pic-container">
-                <img src="./assets/Eye-logo.png" alt="PLBY profile pic"/>
-            </div>
-
-            <div class="section_text">
-                <p class="section_text_p1" > Hello, I'm</p>
-                <h1 class="title"> Angelo Palabay</h1>
-                
-                <p class="job-text"> <span class="typewriter-text"> </span> DEVELOPER
-                </p>
-
-            <div class="btn-container">
-
-                <button 
-                class="btn btn-color-2 project-btn" 
-                onclick="location.href='./#contact'"> 
-                    Contact Info
+    <header class="site-header">
+        <div class="wrap header-bar">
+            <a class="logo" href="#profile">
+                <img class="logo-on-light" src="./assets/logo-light.png" alt="PLBY">
+                <span class="logo-on-dark" role="img" aria-label="PLBY"></span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+                <span class="visually-hidden">Menu</span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
             </button>
-          </div>
-
-            </div>
+            <nav class="site-nav" aria-label="Primary">
+                <ul id="nav-links" class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+                <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.75"/>
+                    <path d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M5.8 5.8l1.6 1.6M16.6 16.6l1.6 1.6M18.2 5.8l-1.6 1.6M7.4 16.6l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+            </button>
         </div>
-    </section>
-  </div>
+    </header>
 
-  <div class="scroll-list_wrp">
-    <section id="about">
-        <p class="section_text_p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-          <div class="section_pic-container1">
-            <img
-              src="./assets/about-me-2.jpg"
-              alt="Profile picture"
-              class="about-pic"
-            />
-          </div>
-          <div class="about-details-container">
-            <div class="about-containers">
-              <div class="details-container">
-                <img
-                  src="./assets/experience.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <h3>Experience</h3>
-                <p>1 year <br />Frontend Development</p>
-              </div>
-              <div class="details-container">
-                <img
-                  src="./assets/education.png"
-                  alt="Education icon"
-                  class="icon"
-                />
-                <h3>Education</h3>
-                <p>B.Sc. Bachelors Degree<br />Information Technology</p>
-              </div>
+    <main>
+        <section id="profile" class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Hello, I'm</p>
+                    <h1>Angelo Palabay</h1>
+                    <p class="role"><span class="typewriter-text"></span><span class="caret" aria-hidden="true"></span> Developer</p>
+                    <a class="btn btn-primary" href="#contact">Contact Info</a>
+                </div>
+                <div class="hero-visual">
+                    <img src="./assets/Eye-logo.png" alt="PLBY eye mark">
+                </div>
             </div>
-            <div class="text-container">
-              <p>
-                A <span class="typewriter-about"> </span>  Developer based on Las Piñas City, PH. Providing a VISUAL STUNNING UI/UX while keeping it's RESPONSIVENESS and USER-FRIENDLY experience. Additionally, for creating a start-up web app for SMEs. My works is where my passion grows and seeks more improvement.
-              </p>
+        </section>
+
+        <section class="proof" aria-label="Background">
+            <div class="wrap proof-grid">
+                <p><strong>1 year</strong> Frontend Development</p>
+                <p><strong>B.Sc.</strong> Information Technology</p>
+                <p><strong>Las Piñas</strong> City, PH</p>
             </div>
-          </div>
-        </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          data-light="./assets/arrow.png"
-          data-dark="./assets/arrow-dark.png"
-          onclick="location.href='./#experience'"
-        />
-      </section>
-    </div>
+        </section>
 
+        <section id="about">
+            <div class="wrap about-grid">
+                <figure class="about-frame">
+                    <img src="./assets/about-me-2.jpg" alt="Profile picture" class="about-pic">
+                </figure>
+                <div>
+                    <p class="eyebrow">Get To Know More</p>
+                    <h2>About Me</h2>
+                    <p class="lede">
+                        A <span class="typewriter-about"></span><span class="caret" aria-hidden="true"></span> Developer based on Las Piñas City, PH. Providing a VISUAL STUNNING UI/UX while keeping it's RESPONSIVENESS and USER-FRIENDLY experience. Additionally, for creating a start-up web app for SMEs. My works is where my passion grows and seeks more improvement.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-      <div class="scroll-list_wrp">
-      <section id="experience">
-        <p class="section_text_p1">Explore My</p>
-        <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <div class="article-container">
-                <h2 class="experience-sub-title">/*Frontend-Development*/</h2>
-
-                <article>
-                    <img
-                      src="./assets/checkmark.png"
-                      alt="Experience icon"
-                      class="icon"
-                    />
+        <section id="experience">
+            <div class="wrap">
+                <p class="eyebrow">Explore My</p>
+                <h2>Experience</h2>
+                <div class="spec-grid">
                     <div>
-                      <h3>React JS</h3>
-                      <p>Basic</p>
+                        <h3>/*Frontend-Development*/</h3>
+                        <ul class="spec-list">
+                            <li><span>React JS</span><span>Basic</span></li>
+                            <li><span>HTML</span><span>Experienced</span></li>
+                            <li><span>CSS</span><span>Experienced</span></li>
+                            <li><span>Figma</span><span>Intermediate</span></li>
+                            <li><span>JavaScript</span><span>Basic</span></li>
+                        </ul>
                     </div>
-                  </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>HTML</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>CSS</h3>
-                    <p>Experienced</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Figma</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>JavaScript</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-
-              </div>
+                    <div>
+                        <h3>//Backend-Development//</h3>
+                        <ul class="spec-list">
+                            <li><span>PostgreSQL</span><span>Basic</span></li>
+                            <li><span>Node JS</span><span>Basic</span></li>
+                            <li><span>Python</span><span>Intermediate</span></li>
+                            <li><span>Java</span><span>Intermediate</span></li>
+                            <li><span>MySQL</span><span>Basic</span></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="details-container">
+        </section>
 
-              <div class="article-container">
-                <h2 class="experience-sub-title">//Backend-Development// </h2>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>PostgreSQL</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Node JS</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Python</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>Java</h3>
-                    <p>Intermediate</p>
-                  </div>
-                </article>
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"
-                  />
-                  <div>
-                    <h3>MySQL</h3>
-                    <p>Basic</p>
-                  </div>
-                </article>
-              </div>
+        <section id="projects">
+            <div class="wrap">
+                <p class="eyebrow">Browse My Recent</p>
+                <h2>Project</h2>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <img src="./assets/Lakbay.png" alt="Lakbay Kain &amp; Kape" class="project-img">
+                        <div class="project-body">
+                            <h3>Lakbay Kain &amp; Kape</h3>
+                            <a class="btn btn-secondary" href="https://github.com/miigo-dev/lakbay-sales-inventory" target="_blank" rel="noopener noreferrer">Github</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <img src="./assets/ie-payroll.png" alt="I&amp;E Payroll System login" class="project-img">
+                        <div class="project-body">
+                            <h3>I&amp;E Payroll System</h3>
+                            <span class="private-label">Private</span>
+                        </div>
+                    </article>
+                </div>
             </div>
-          </div>
-        </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          data-light="./assets/arrow.png"
-          data-dark="./assets/arrow-dark.png"
-          onclick="location.href='./#projects'"
-        />
-      </section>
-    </div>
+        </section>
 
-
-      <div class="scroll-list_wrp">
-      <section id="projects">
-        <p class="section_text_p1">Browse My Recent</p>
-        <h1 class="title">Project</h1>
-          <div class="experience-details-container">
-          <div class="about-containers">
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/Lakbay.png"
-                  alt="Project 3"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Lakbay Kain & Kape</h2>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/miigo-dev/lakbay-sales-inventory'"
-                >
-                  Github
-                </button>
-              </div>
+        <section id="contact">
+            <h2 class="visually-hidden">Looking for UI/UX? Contact me. Let's build together</h2>
+            <div class="ticker" aria-hidden="true">
+                <div class="ticker-track">
+                    <span>LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
+                    <span>LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
+                </div>
             </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/ie-payroll.png"
-                  alt="I&E Payroll System login"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">I&E Payroll System</h2>
-              <div class="btn-container">
-                <span class="project-private">Private</span>
-              </div>
+            <div class="wrap contact-block">
+                <p class="eyebrow">Contact</p>
+                <a class="email-link" href="mailto:plby2026@gmail.com">plby2026@gmail.com</a>
             </div>
-          </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-bar">
+            <ul class="social-list">
+                <li>
+                    <a href="https://github.com/yabalap" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                        <img class="social-light" src="./assets/github.png" alt="">
+                        <img class="social-dark" src="./assets/github-dark.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://steamcommunity.com/profiles/76561198342953323/" target="_blank" rel="noopener noreferrer" aria-label="Steam profile">
+                        <img src="./assets/Steam_icon_logo.svg.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/paloves20_youmus/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+                        <img src="./assets/instagram-icon.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://discordapp.com/users/721930271011766282" target="_blank" rel="noopener noreferrer" aria-label="Discord profile">
+                        <img src="./assets/discord-logo.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+            <img class="footer-logo logo-on-light" src="./assets/logo-light.png" alt="PLBY">
+            <span class="footer-logo logo-on-dark" role="img" aria-label="PLBY"></span>
         </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          data-light="./assets/arrow.png"
-          data-dark="./assets/arrow-dark.png"
-          onclick="location.href='./#contact'"
-        />
-
-        
-      </section>
-    </div>
-
-      <section id="contact">
-        <div class="scrolling-text-container">
-          <div class="scrolling-wrapper">
-          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
-          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
-          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
-          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
-          <span class="scrolling-text">LOOKING FOR UI/UX? CONTACT ME - LET'S BUILD TOGETHER</span>
-        </div>
-      </div>
-        <div class="contact-info-upper-container">
-          <div class="contact-info-container">
-
-            <p><a class="list" href="mailto:gelspalabay05@gmail.com">gelspalabay05@gmail.com</a></p>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <nav>
-          <div class="nav-links-container">
-            <div class="social-container">
-              <img 
-              src="./assets/github.png" 
-              alt="Github profile"
-              onclick="location.href='https://github.com/yabalap'"
-              class="git-icon"
-              data-light="./assets/github.png"
-              data-dark="./assets/github-dark.png"
-              />
-              <img 
-              src="./assets/Steam_icon_logo.svg.png" 
-              alt="Steam profile"
-              class="steam-icon"
-              onclick="location.href='https://steamcommunity.com/profiles/76561198342953323/'"
-              />
-              <img 
-              src="./assets/instagram-icon.png" 
-              alt="Steam profile"
-              class="insta-icon"
-              onclick="location.href='https://www.instagram.com/paloves20_youmus/'"
-              />
-              <img 
-              src="./assets/discord-logo.jpg" 
-              alt="Steam profile"
-              class="discord-icon"
-              onclick="location.href='https://discordapp.com/users/721930271011766282'"
-              />
-          </div>
-          </div>
-        </nav>
-        <img 
-        src="./assets/logo-light.png" 
-        alt="PLBY profile pic" 
-        class="theme-image"
-        data-light="./assets/logo-light.png"
-        data-dark="./assets/dark-logo.png"
-    />      </footer>
-        <script src="script.js"> </script>
-    </body>
+    </footer>
+    <script src="script.js"></script>
+</body>
 </html>

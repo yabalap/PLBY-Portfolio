@@ -1,167 +1,136 @@
-function toggleMenu() {
-    const menu = document.querySelector(".menu-links"); // for the functionality of the hamburger menu belong to div class- menu links//
-
-    const icon = document.querySelector(".hamburger-icon"); // for the functionality of the hamburger menu belong to div class- hamburger-icon//
-
-    menu.classList.toggle("open");
-    icon.classList.toggle("open");
-
-}
-
-const texts1 = ["FRONT-END", "WEB"];
-const texts2 = ["FRONT-END", "WEB"]; // New texts for .typewriter-about
-
-let speed = 200;
-const textElement = document.querySelector(".typewriter-text");
-const textElement1 = document.querySelector(".typewriter-about");
-
-let textIndex1 = 0, charIndex1 = 0;
-let textIndex2 = 0, charIndex2 = 0;
-
-function typeWriter1() {
-    if (charIndex1 < texts1[textIndex1].length) {
-        textElement.innerHTML += texts1[textIndex1].charAt(charIndex1);
-        charIndex1++;
-        setTimeout(typeWriter1, speed);
-    } else {
-        setTimeout(eraseText1, 2000);
-    }
-}
-
-function eraseText1() {
-    if (textElement.innerHTML.length > 0) {
-        textElement.innerHTML = textElement.innerHTML.slice(0, -1);
-        setTimeout(eraseText1, 50);
-    } else {
-        textIndex1 = (textIndex1 + 1) % texts1.length;
-        charIndex1 = 0;
-        setTimeout(typeWriter1, 500);
-    }
-}
-
-function typeWriter2() {
-    if (charIndex2 < texts2[textIndex2].length) {
-        textElement1.innerHTML += texts2[textIndex2].charAt(charIndex2);
-        charIndex2++;
-        setTimeout(typeWriter2, speed);
-    } else {
-        setTimeout(eraseText2, 2000);
-    }
-}
-
-function eraseText2() {
-    if (textElement1.innerHTML.length > 0) {
-        textElement1.innerHTML = textElement1.innerHTML.slice(0, -1);
-        setTimeout(eraseText2, 50);
-    } else {
-        textIndex2 = (textIndex2 + 1) % texts2.length;
-        charIndex2 = 0;
-        setTimeout(typeWriter2, 500);
-    }
-}
-
-// Start both typewriter effects
-typeWriter1();
-typeWriter2();
 document.addEventListener("DOMContentLoaded", () => {
-    const body = document.body;
-    const desktopToggle = document.getElementById("dark-mode-toggle");
-    const desktopIcon = document.getElementById("dark-mode-icon");
-    const mobileToggle = document.getElementById("dark-mode-toggle-mobile");
-    const mobileIcon = document.getElementById("dark-mode-icon-mobile");
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("theme-toggle");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    const progress = document.getElementById("scroll-progress");
 
-    // Image paths
-    const moonIcon = "./assets/dark-mode.png"; // Dark mode icon
-    const sunIcon = "./assets/light-mode.png"; // Light mode icon
-
-    // Apply stored theme preference
-    if (localStorage.getItem("darkMode") === "enabled") {
-        body.classList.add("darkmode");
-        desktopIcon.src = sunIcon;
-        mobileIcon.src = sunIcon;
-    } else {
-        body.classList.remove("darkmode");
-        desktopIcon.src = moonIcon;
-        mobileIcon.src = moonIcon;
+    function isDark() {
+        return root.classList.contains("darkmode");
     }
 
-    // Update images based on theme
-    updateThemeImages();
-
-    // Toggle function for both buttons
-    function toggleDarkMode() {
-        const isDarkMode = body.classList.toggle("darkmode");
-        localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
-        desktopIcon.src = isDarkMode ? sunIcon : moonIcon;
-        mobileIcon.src = isDarkMode ? sunIcon : moonIcon;
-        updateThemeImages();
+    function syncThemeButton() {
+        if (!themeToggle) return;
+        const dark = isDark();
+        themeToggle.setAttribute("aria-pressed", String(dark));
+        themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
     }
 
-    desktopToggle.addEventListener("click", toggleDarkMode);
-    mobileToggle.addEventListener("click", toggleDarkMode);
+    syncThemeButton();
 
-    /**
-     * Updates all images with the correct theme version.
-     */
-    function updateThemeImages() {
-        document.querySelectorAll("[data-light][data-dark]").forEach(img => {
-            const isDarkMode = document.body.classList.contains("darkmode");
-            img.src = isDarkMode ? img.dataset.dark : img.dataset.light;
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            const dark = !isDark();
+            root.classList.toggle("darkmode", dark);
+            localStorage.setItem("darkMode", dark ? "enabled" : "disabled");
+            syncThemeButton();
         });
     }
 
-    // Apply styles for mobile nav same as desktop nav
-    const style = document.createElement("style");
-    style.innerHTML = `
-        #dark-mode-toggle-mobile {
-            position: relative;
-            top: 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
-        
-        #dark-mode-icon-mobile {
-            width: 50px;
-            height: 50px;
-            transition: transform 0.2s ease, opacity 0.3s ease;
-        }
-        
-        #dark-mode-toggle-mobile:hover #dark-mode-icon-mobile {
-            transform: scale(1.1);
-        }
-    `;
-    document.head.appendChild(style);
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const numFlakes = 50; // Number of snowflakes
-    for (let i = 0; i < numFlakes; i++) {
-        let snowflake = document.createElement("div");
-        snowflake.classList.add("snowflake");
-        snowflake.innerHTML = "❆"; // Snowflake character
-        document.body.appendChild(snowflake);
-
-        let size = Math.random() * 10 + 5; // Random size
-        let left = Math.random() * window.innerWidth; // Random horizontal position
-        let duration = Math.random() * 5 + 5; // Random fall duration
-        let delay = Math.random() * 5; // Random delay
-
-        snowflake.style.left = left + "px";
-        snowflake.style.fontSize = size + "px";
-        snowflake.style.animationDuration = duration + "s";
-        snowflake.style.animationDelay = delay + "s";
+    function setMenu(open) {
+        if (!menuToggle || !navLinks) return;
+        menuToggle.setAttribute("aria-expanded", String(open));
+        navLinks.classList.toggle("is-open", open);
     }
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            setMenu(menuToggle.getAttribute("aria-expanded") !== "true");
+        });
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => setMenu(false));
+        });
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") setMenu(false);
+        });
+        document.addEventListener("click", (event) => {
+            if (!navLinks.classList.contains("is-open")) return;
+            if (event.target.closest(".site-nav") || event.target.closest(".menu-toggle")) return;
+            setMenu(false);
+        });
+    }
+
+    function updateProgress() {
+        if (!progress) return;
+        const scrollable = root.scrollHeight - window.innerHeight;
+        const amount = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        progress.style.width = amount + "%";
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    const sections = ["about", "experience", "projects", "contact"]
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+    const navAnchors = [...document.querySelectorAll(".nav-links a")];
+
+    if ("IntersectionObserver" in window && sections.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                navAnchors.forEach((anchor) => {
+                    const current = anchor.getAttribute("href") === "#" + entry.target.id;
+                    if (current) anchor.setAttribute("aria-current", "true");
+                    else anchor.removeAttribute("aria-current");
+                });
+            });
+        }, { rootMargin: "-40% 0px -50% 0px" });
+        sections.forEach((section) => observer.observe(section));
+    }
+
+    startTypewriter(document.querySelector(".typewriter-text"), ["AI PROMPT", "FULL STACK"]);
+    startTypewriter(document.querySelector(".typewriter-about"), ["AI PROMPT", "FULL STACK"]);
 });
 
+function startTypewriter(element, phrases) {
+    if (!element) return;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let timer = 0;
 
-AOS.init({
-    duration: 1000, // Animation duration in milliseconds
-    once: false, // Keep animating when scrolling back
-    mirror: false, // Disable animation when scrolling back up
-    offset: 100, // Adjusts when animation triggers
-  });
+    function run() {
+        window.clearTimeout(timer);
+        if (motion.matches) {
+            element.textContent = phrases[0];
+            return;
+        }
 
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function tick() {
+            if (motion.matches) {
+                element.textContent = phrases[0];
+                return;
+            }
+            const phrase = phrases[phraseIndex];
+            if (!deleting) {
+                charIndex += 1;
+                element.textContent = phrase.slice(0, charIndex);
+                if (charIndex >= phrase.length) {
+                    deleting = true;
+                    timer = window.setTimeout(tick, 1600);
+                    return;
+                }
+                timer = window.setTimeout(tick, 90);
+                return;
+            }
+            charIndex -= 1;
+            element.textContent = phrase.slice(0, Math.max(charIndex, 0));
+            if (charIndex <= 0) {
+                deleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                timer = window.setTimeout(tick, 400);
+                return;
+            }
+            timer = window.setTimeout(tick, 45);
+        }
+
+        tick();
+    }
+
+    run();
+    motion.addEventListener("change", run);
+}
