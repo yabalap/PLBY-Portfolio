@@ -454,6 +454,21 @@ article .icon{
     border-color: var(--border-color-a);
   }
 
+  .project-private {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 1rem;
+    width: 8rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 2rem;
+    color: var(--text-color);
+    border: var(--border-color-a);
+    cursor: default;
+  }
+
 
 
 
